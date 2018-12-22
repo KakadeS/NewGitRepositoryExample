@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.sayalikakade.telstraassignmenttask.viewmodel.CountryItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/relative_margin">
+
+        <TextView
+            android:id="@+id/country_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="@dimen/tile_size"
+            android:textStyle="bold"
+            app:text="@{viewModel.title}" />
+
+        <TextView
+            android:id="@+id/country_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/country_title"
+            android:layout_toLeftOf="@+id/country_image"
+            android:layout_toStartOf="@+id/country_image"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/description_size"
+            android:textStyle="normal"
+            app:text="@{viewModel.description}" />
+
+        <ImageView
+            android:id="@+id/country_image"
+            android:layout_width="@dimen/image_width"
+            android:layout_height="@dimen/image_height"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/country_title"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loading"
+            app:imageHref="@{viewModel.imageHref}" />
+    </RelativeLayout>
+</layout>
